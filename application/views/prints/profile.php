@@ -2,11 +2,11 @@
 	<div class="row justify-content-center my-4">
 		<div class="col-10">
 			<div class="card bg-info p-4 rounded text-white mb-3">
-			  <div class="row position-absolute" style="right: 5px; top: 5px">
+			  <!-- <div class="row position-absolute" style="right: 5px; top: 5px">
 			  	<div class="col">
 			  		<img width="100" src="<?= base_url('assets/img/img_properties/qr-code.png'); ?>" alt="qr-code">
 			  	</div>
-			  </div>
+			  </div> -->
 			  <div class="row no-gutters">
 			    <div class="col-2 mt-4">
 			    	<a href="<?= base_url('assets/img/img_profiles/') . $userProfile['foto']; ?>" class="enlarge">

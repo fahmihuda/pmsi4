@@ -12,13 +12,13 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-5">
+		<div class="col-lg-5 my-2">
 			<form action="<?= base_url('member/createMember'); ?>" method="post">
 		    	<div class="modal-content">
-			      <div class="modal-header">
+			      <div class="modal-header p-4">
 			        <h5 class="modal-title" id="tambahMemberModalLabel"><i class="fas fa-fw fa-users"></i> <sup><i class="fas fa-fw fa-plus"></i></sup> Tambah Member</h5>
 			      </div>
-			      <div class="modal-body">
+			      <div class="modal-body p-4">
 			        <div class="form-group">
 			        	<label for="nama_member">Nama Member</label>
 			        	<input required type="text" name="nama_member" id="nama_member" class="form-control" value="<?= set_value('nama_member'); ?>">
@@ -55,15 +55,15 @@
 					    <?= form_error('alamat_member', '<small class="form-text text-danger">', '</small>'); ?>
 			        </div>
 			      </div>
-			      <div class="modal-footer">
+			      <div class="modal-footer p-4">
 			        <button type="submit" name="btnTambahMember" class="btn btn-primary"><i class="fas fa-fw fa-paper-plane"></i> Kirim</button>
 			      </div>
 			    </div>
 		    </form>
 		</div>
 
-		<div class="col-lg-7">
-			<div class="table-responsive">
+		<div class="card col-lg-7 my-2">
+			<div class="table-responsive p-4">
 				<table class="table table-striped table-bordered" id="table_id">
 					<thead>
 						<tr>

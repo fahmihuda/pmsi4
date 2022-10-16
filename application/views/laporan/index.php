@@ -1,6 +1,6 @@
-<div class="container">
-	<div class="row my-2">
-		<div class="col-lg header-judul">
+<div class="card container">
+	<div class="row">
+		<div class="col-lg header-judul card-header">
 			<h2><i class="fas fa-fw fa-file-signature"></i> Daftar Laporan</h2>
 			<?php if (validation_errors()): ?>
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -14,7 +14,7 @@
 	</div>
 	<!-- Form Cari Tanggal dan jumlah pelanggan -->
 	<div class="row my-2">
-		<div class="col-lg-8">
+		<div class="col-lg">
 			<div class="p-4 m-1 rounded text-white bg-info">
 				<h3>Filter Tanggal Transaksi</h3>
 				<?php if (isset($_POST['cari_tanggal'])): ?>

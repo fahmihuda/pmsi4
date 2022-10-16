@@ -22,12 +22,12 @@ class Auth extends CI_Controller {
 
 	public function cekStatusPesanan()
 	{
-		$data['title'] = 'Cek Status Pesanan - Diamond Laundry';
+		$data['title'] = 'Cek Status Pesanan - Andry Laundry';
 		if (isset($_POST['cari_kode'])) {
 			$kode_invoice = $this->input->post('kode_invoice', true);
 			$data['transaksi'] = $this->am->getTransaksiByKodeInvoice($kode_invoice);
-			$id_transaksi =  $data['transaksi']['id_transaksi']; 
-			if ($data['transaksi'] > 0) {
+			if (!empty($data['transaksi'])) {
+				$id_transaksi = $data['transaksi']['id_transaksi'];
 				$data['detail_header_transaksi'] = $this->am->getDetailTransaksiByIdTransaksi($id_transaksi);
 				$data['detail_transaksi'] = $this->tm->getDetailTransaksiById($id_transaksi);
 				$data['total_harga'] = $this->tm->getTotalHarga($id_transaksi);

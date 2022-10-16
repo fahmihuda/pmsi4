@@ -122,7 +122,7 @@
 						        			<div class="form-group">
 						        				<input type="hidden" name="total_harga" value="<?= $total_harga_terakhir; ?>">
 						        				<label for="uang_yg_dibayar">Uang yang dibayar</label>
-						        				<input type="number" id="uang_yg_dibayar" class="form-control" name="uang_yg_dibayar">
+						        				<input type="text" id="uang_yg_dibayar" class="form-control" name="uang_yg_dibayar">
 						        			</div>
 						        			<div class="form-group text-right">
 							        			<button name="bayar" type="submit" class="btn btn-success"><i class="fas fa-fw fa-dollar-sign"></i> Bayar</button>

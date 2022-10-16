@@ -95,7 +95,48 @@ class Transaksi extends CI_Controller {
 			$this->load->view('transaksi/index', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$this->tm->createTransaksi();
+			$kode = $this->tm->createTransaksi();
+
+			$config = [
+				
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_user' => 'official.diamond.laundry@gmail.com',
+				'smtp_pass' => 'fboaxplenjrmrsha',
+				'smtp_port' => '465',
+			];
+
+			$this->load->library('email', $config);
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+			$this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+			$this->email->set_header('Content-type', 'text/html');
+
+			$id_member = $this->input->post('id_member', true);
+			$email = $this->tm->getMemberById($id_member);
+			$subject = 'Transaksi Baru';
+
+			// $logo = base_url('assets/img/img_properties/icon.png');
+			// $cid = $this->email->attachment_cid($logo);
+
+			$msg = '
+			<h3>Halo <b>' . $email['nama_member'] . '!</b></h3>
+			<br><br>
+			Pesanan anda sudah kami terima, anda dapat cek status pesanan anda dengan menggunakan kode berikut : <b>' . $kode . '</b>
+			<br><br>
+			Terimakasih atas pesanan anda!
+			';
+
+			$this->email->from('official.diamond.laundry@gmail.com');
+			$this->email->to($email['email_member']);
+			$this->email->subject($subject);
+			$this->email->message($msg);
+
+			if($this->email->send()){
+				redirect('detailTransaksi/tambahDetailTransaksi/');
+			} else {
+				show_error($this->email->print_debugger());
+			}
 		}
 	}
 
@@ -195,13 +236,55 @@ class Transaksi extends CI_Controller {
 
 		$data['title'] = ucwords('pembayaran transaksi - ') . $data['dataUser']['username'];
 		
-		$this->form_validation->set_rules('uang_yg_dibayar', 'Uang yang dibayar', 'required|numeric');
+		$this->form_validation->set_rules('uang_yg_dibayar', 'Uang yang dibayar', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('templates/header-sidebar', $data);
 			$this->load->view('transaksi/pembayaran_transaksi', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$this->tm->pembayaranTransaksi($id_transaksi);
+			$config = [
+				
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_user' => 'official.diamond.laundry@gmail.com',
+				'smtp_pass' => 'fboaxplenjrmrsha',
+				'smtp_port' => '465',
+			];
+
+			$this->load->library('email', $config);
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+			$this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+			$this->email->set_header('Content-type', 'text/html');
+
+
+			$id_member = $data['transaksi']['id_member'];
+			$email = $this->tm->getMemberById($id_member);
+			$subject = 'Transaksi Selesai';
+
+			// $logo = base_url('assets/img/img_properties/icon.png');
+			// $cid = $this->email->attachment_cid($logo);
+
+			$msg = '
+			<h3>Halo <b>' . $email['nama_member'] . '!</b></h3>
+			<br><br>
+			Pesanan anda sudah selesai, Kami harap anda puas dengan pelayanan kami. jika ada kendala/masalah hubungi kami melalui
+			<a href="https://api.whatsapp.com/send?phone=6281222334545">+62 122 2333 4545</a>
+			<br><br>
+			Terimakasih atas pesanan anda!
+			';
+
+			$this->email->from('official.diamond.laundry@gmail.com');
+			$this->email->to($email['email_member']);
+			$this->email->subject($subject);
+			$this->email->message($msg);
+
+			if($this->email->send()){
+				$this->tm->pembayaranTransaksi($id_transaksi);
+			} else {
+				show_error($this->email->print_debugger());
+			}
+
 		}
 	}
 	
