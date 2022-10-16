@@ -1,6 +1,6 @@
 <div class="row my-2">
 	<div class="col-lg header-judul">
-		<h2 class="" id="o-text"><i class="fas fa-fw fa-tachometer-alt"></i> Dashbor</h2>
+		<h2 class="" id="o-text"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</h2>
 		<?php if (validation_errors()) : ?>
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				<strong>Gagal!</strong> <?= validation_errors(); ?>
@@ -15,7 +15,7 @@
 <!-- Form Cari Tanggal dan jumlah pelanggan -->
 <div class="row my-2">
 	<div class="col-lg-9">
-		<form method="post" action="<?= base_url('main'); ?>" class="form-inline bg-primary shadow p-3 rounded text-white">
+		<form method="post" action="<?= base_url('main'); ?>" class="form-inline bg-dark shadow p-3 rounded text-white">
 			<div class="row mx-auto justify-content-center">
 				<div class="col-lg text-center ml-2 p-1">
 					<?php if (isset($_POST['cari_tanggal'])) : ?>

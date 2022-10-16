@@ -88,22 +88,21 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 		<div class="wrapper">
 			<!-- Sidebar  -->
 			<nav id="sidebar">
-				<div class="sidebar-header">
-					<img class="img-fluid" src="<?= base_url('assets/img/img_properties/diamondlogo.png'); ?>" alt="logo">
+				<div class="sidebar-header">				
+					<img class="img-fluid" src="<?= base_url('assets/img/img_properties/header.png'); ?>" alt="logo">
 				</div>
-
 				<ul class="list-unstyled components">
 					<li class="p-2">
-						<div class="neu bg-custom">
+						<div class="neu bg-dark">
 							<div class="modal-body">
 								<div class="d-flex">
 									<div>
-										<img src="<?= base_url('assets/img/img_profiles/') . $dataUser['foto']; ?>" class="card-img-top rounded" alt="..."  style="height: 73px; width: 62.5px;">
+										<img src="<?= base_url('assets/img/img_profiles/') . $dataUser['foto']; ?>" class="card-img-top rounded" alt="..."  style="height: 84px; width: 68px;">
 									</div>
 									<div class="ml-2" style="width: 100%;">
 										<h5 style="font-size: 0.8rem;" class=""><?= $dataUser['username']; ?></h5>
 										<h5 style="font-size: 0.65rem;" class=""><?= $dataUser['nama_jabatan']; ?></h5>
-										<a href="<?= base_url('main/profile'); ?>" class="btn btn-secondary my-0" style="width: 70%; height: auto; font-size: 11px;">Edit Profile</a>
+										<a href="<?= base_url('main/profile'); ?>" class="btn btn-secondary my-0" style="width: 70%; height: auto; font-size: 12px;">Edit Profile</a>
 									</div>
 								</div>
 							</div>
@@ -112,7 +111,7 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 					<!-- <p class="bg-success my-0"><strong>Pengguna</strong> : <?= $dataUser['username']; ?></p>
 					<p class="bg-danger my-0"><strong>Jabatan</strong> : <?= $dataUser['nama_jabatan']; ?></p> -->
 					<li class="p-2">
-						<a href="<?= base_url('main'); ?>" class="rounded"><i class="fas fa-fw fa-tachometer-alt"></i> Dasbor</a>
+						<a href="<?= base_url('main'); ?>" class="rounded"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a>
 					</li>
 					<?php if ($this->session->userdata('id_jabatan') !== '4') : ?>
 						<!-- <li class="p-2">
@@ -130,7 +129,9 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 						<ul class="collapse list-unstyled" id="manajemenSubmenu">
 							<!-- Jika yang login super administrator -->
 							<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-
+								<li class="">
+									<a href="<?= base_url('outlet'); ?>"><i class="fas fa-fw fa-store"></i> Outlet</a>
+								</li>
 								<li class="">
 									<a href="<?= base_url('jabatan'); ?>"><i class="fas fa-fw fa-user"></i> <sup><i class="fas fa-1x fa-chart-line"></i></sup> Jabatan</a>
 								</li>

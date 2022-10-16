@@ -24,7 +24,7 @@ class Main extends CI_Controller {
 		$this->mm->check_status_login();
 		$this->check_biodata();
 		$data['dataUser'] = $this->mm->getDataUser();
-		$data['title'] = 'Dashbor Diamond Laundry';
+		$data['title'] = 'Dashboard Diamond Laundry';
 		
 		// jika tombol cari tanggal ditekan
 		if (isset($_POST['cari_tanggal'])) {

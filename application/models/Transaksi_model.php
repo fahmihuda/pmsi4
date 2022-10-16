@@ -94,6 +94,21 @@ class Transaksi_model extends CI_Model {
 		$this->db->order_by('nama_member', 'asc');
 		return $this->db->get('member')->result_array();
 	}
+	public function getMemberById($id)
+	{
+		$this->db->select('*');
+		$this->db->from('member');
+		$this->db->where('id_member', $id);
+
+		$query = $this->db->get();
+
+		if ( $query->num_rows() > 0 )
+    {
+        $row = $query->row_array();
+        return $row;
+    }
+
+	}
 
 	public function getAllOutlet()
 	{
@@ -208,7 +223,10 @@ class Transaksi_model extends CI_Model {
 		}
 		// kirim kode invoice
 		$this->session->set_userdata(['kode_invoice' => $kode_invoice]);
-		redirect('detailTransaksi/tambahDetailTransaksi/');
+
+		
+		return $kode_invoice;
+		// redirect('detailTransaksi/tambahDetailTransaksi/');
 	}
 
 	public function updateTransaksi($id)
@@ -301,6 +319,7 @@ class Transaksi_model extends CI_Model {
 	{
 		$transaksi = $this->getTransaksiById($id);
 		$uang_yg_dibayar = $this->input->post('uang_yg_dibayar', true);
+		$uang_yg_dibayar = str_replace(',', '', $uang_yg_dibayar);
 		$total_harga = $this->input->post('total_harga', true);
 		if ($uang_yg_dibayar < $total_harga) {
 			$this->session->set_flashdata('message-failed', 'Pembayaran Transaksi ' . $transaksi['kode_invoice'] . ' gagal! uang yang dibayar kurang dari total harga');

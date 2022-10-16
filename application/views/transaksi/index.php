@@ -69,6 +69,11 @@
 								</select>
 								<?= form_error('id_member', '<small class="form-text text-danger">', '</small>'); ?>
 							</div>
+							<div class="form-group">
+								<label for="id_outlet">Nama Toko</label>
+								<input type="hidden" name="id_outlet" value="<?= $this->session->userdata('id_outlet'); ?>">
+								<input style="cursor: not-allowed;" disabled type="text" value="<?= $dataUser['nama_outlet']; ?>" class="form-control">
+							</div>
 						  </div>
 						  <div class="modal-footer">
 							<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-fw fa-times"></i> Batal</button>
@@ -125,6 +130,9 @@
 										<th>Tanggal Bayar</th>
 										<th>Status Transaksi</th>
 										<th>Status Bayar</th>
+										<?php if ($this->session->userdata('id_jabatan') == '1'): ?>
+											<th>Toko</th>
+										<?php endif ?>
 										<th>Pembuat</th>
 										<th>Aksi</th>
 									</tr>
@@ -167,6 +175,9 @@
 													<span class="badge badge-success"><i class="fas fa-fw fa-check"></i> <?= $dt['status_bayar']; ?></span>
 												<?php endif ?>
 											</td>
+											<?php if ($this->session->userdata('id_jabatan') == '1'): ?>
+												<td><?= $dt['nama_outlet']; ?></td>
+											<?php endif ?>
 											<td><?= $dt['username']; ?></td>
 											<td>
 												<?php if ($dt['status_bayar'] == 'sudah dibayar'): ?>
@@ -304,6 +315,11 @@
 															</select>
 														<?php endif ?>
 													</div>
+													<div class="form-group">
+														<label for="id_outlet<?= $dt['id_transaksi']; ?>">Nama Toko</label>
+														<input type="hidden" name="id_outlet" value="<?= $dt['id_outlet']; ?>">
+														<input style="cursor: not-allowed;" disabled type="text" value="<?= $dataUser['nama_outlet']; ?>" class="form-control">
+													</div>
 												  </div>
 												  <div class="modal-footer">
 													<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-fw fa-times"></i> Batal</button>
@@ -334,6 +350,9 @@
 										<th>Tanggal Bayar</th>
 										<th>Status Transaksi</th>
 										<th>Status Bayar</th>
+										<?php if ($this->session->userdata('id_jabatan') == '1'): ?>
+											<th>Toko</th>
+										<?php endif ?>
 										<th>Pembuat</th>
 										<th>Aksi</th>
 									</tr>
@@ -376,6 +395,9 @@
 													<span class="badge badge-success"><i class="fas fa-fw fa-check"></i> <?= $dt['status_bayar']; ?></span>
 												<?php endif ?>
 											</td>
+											<?php if ($this->session->userdata('id_jabatan') == '1'): ?>
+												<td><?= $dt['nama_outlet']; ?></td>
+											<?php endif ?>
 											<td><?= $dt['username']; ?></td>
 											<td>
 												<?php if ($dt['status_bayar'] == 'sudah dibayar'): ?>
@@ -537,6 +559,11 @@
 																<?php endforeach ?>
 															</select>
 														<?php endif ?>
+													</div>
+													<div class="form-group">
+														<label for="id_outlet<?= $dt['id_transaksi']; ?>">Nama Toko</label>
+														<input type="hidden" name="id_outlet" value="<?= $dt['id_outlet']; ?>">
+														<input style="cursor: not-allowed;" disabled type="text" value="<?= $dataUser['nama_outlet']; ?>" class="form-control">
 													</div>
 												  </div>
 												  <div class="modal-footer">

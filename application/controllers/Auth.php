@@ -13,7 +13,7 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Selamat Datang di Andry Laundry';
+		$data['title'] = 'Selamat Datang di Diamond Laundry';
 		$data['outlet'] = $this->mm->getAllOutlet();
 		$this->load->view('templates/header_landing', $data);
 		$this->load->view('auth/index', $data);
@@ -22,7 +22,7 @@ class Auth extends CI_Controller {
 
 	public function cekStatusPesanan()
 	{
-		$data['title'] = 'Cek Status Pesanan - Andry Laundry';
+		$data['title'] = 'Cek Status Pesanan - Diamond Laundry';
 		if (isset($_POST['cari_kode'])) {
 			$kode_invoice = $this->input->post('kode_invoice', true);
 			$data['transaksi'] = $this->am->getTransaksiByKodeInvoice($kode_invoice);

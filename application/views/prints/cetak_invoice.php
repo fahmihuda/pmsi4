@@ -38,22 +38,22 @@
 <div class="container border border-dark my-2 p-4 px-5 mt-4">
   <div class="row justify-content-center">
     <div class="col-2 text-left">
-      <img width="100%" class="rounded" src="<?= base_url('assets/img/img_properties/diamondogo.png'); ?>" alt="logo">
+      <img width="100%" class="rounded" src="<?= base_url('assets/img/img_properties/diamondlogo.png'); ?>" alt="logo">
     </div>
     <div class="col text-left my-auto">
       <table border="0">
         <tr>
-          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Nama Outlet</h6></th>
+          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Nama Toko</h6></th>
           <td class="px-2"> : </td>
-          <td><?= $transaksi['nama_outlet']; ?></td>
+          <td>Diamond Laundry</td>
         </tr>
         <tr>
-          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Alamat Outlet</h6></th>
+          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Alamat Toko</h6></th>
           <td class="px-2"> : </td>
           <td><?= $transaksi['alamat_outlet']; ?></td>
         </tr>
         <tr>
-          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Telepon Outlet</h6></th>
+          <th style="min-width: 135px !important"><h6 class="text-dark py-0 my-0 font-weight-bold">Telepon Toko</h6></th>
           <td class="px-2"> : </td>
           <td><?= $transaksi['telepon_outlet']; ?></td>
         </tr>

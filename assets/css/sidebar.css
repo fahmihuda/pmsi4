@@ -50,6 +50,19 @@ a:focus {
     display: flex;
     width: 100%;
 }
+.neu {
+	border-radius: 15px;
+	box-shadow: inset 5px 5px 6px #7ac3ff, inset -5px -5px 6px #6d83ff;
+}
+.bg-custom {
+	background: rgb(67, 127, 249);
+	background: linear-gradient(
+		5deg,
+		rgba(67, 127, 249, 1) 0%,
+		rgba(74, 165, 248, 1) 35%,
+		rgba(109, 206, 252, 1) 100%
+	);
+}
 
 #sidebar {
     width: 250px;
@@ -58,9 +71,15 @@ a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #007BFF;
-    color: #fff;
-    transition: all 0.3s;
+	background: rgb(67, 127, 249);
+	background: linear-gradient(
+		5deg,
+		rgba(67, 127, 249, 1) 0%,
+		rgba(74, 165, 248, 1) 35%,
+		rgba(109, 206, 252, 1) 100%
+	);
+	color: #fff;
+	transition: all 0.3s;
 }
 
 #sidebar.active {
@@ -69,7 +88,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #17A2B8     ;
+    background: #9ed41e     ;
 }
 
 #sidebar ul.components {
@@ -193,7 +212,8 @@ a.article:hover {
   line-height: 46px;
 }
 
-.scroll-to-top:focus, .scroll-to-top:hover {
+.scroll-to-top:focus, 
+.scroll-to-top:hover {
   color: white;
 }
 
