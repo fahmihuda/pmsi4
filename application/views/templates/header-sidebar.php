@@ -93,7 +93,6 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 				</div>
 
 				<ul class="list-unstyled components">
-					<!-- <p class="bg-primary my-0"><strong>Outlet</strong> : <?= $dataUser['nama_outlet']; ?></p> -->
 					<li class="p-2">
 						<div class="neu bg-custom">
 							<div class="modal-body">
@@ -131,9 +130,7 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 						<ul class="collapse list-unstyled" id="manajemenSubmenu">
 							<!-- Jika yang login super administrator -->
 							<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-								<li class="">
-									<a href="<?= base_url('outlet'); ?>"><i class="fas fa-fw fa-store"></i> Outlet</a>
-								</li>
+
 								<li class="">
 									<a href="<?= base_url('jabatan'); ?>"><i class="fas fa-fw fa-user"></i> <sup><i class="fas fa-1x fa-chart-line"></i></sup> Jabatan</a>
 								</li>
@@ -221,7 +218,7 @@ $cek_biodata = $this->db->get_where('user', ['user.id_user' => $id])->row_array(
 									</button>
 								</div>
 								<div class="modal-body">
-									Apakah <?= $dataUser['username']; ?> dari outlet <?= $dataUser['nama_outlet']; ?> ingin keluar aplikasi?
+									Apakah <?= $dataUser['username']; ?> yakin ingin keluar aplikasi?
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-fw fa-times"></i> Batal</button>

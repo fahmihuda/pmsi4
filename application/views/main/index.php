@@ -212,9 +212,6 @@
 							<th>Tanggal Transaksi</th>
 							<th>Batas Waktu</th>
 							<th>Status Transaksi</th>
-							<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-								<th>Nama Outlet</th>
-							<?php endif ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -255,9 +252,6 @@
 										<?php endif ?>
 									</td>
 								<?php endif ?>
-								<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-									<td><?= $twshi['nama_outlet']; ?></td>
-								<?php endif ?>
 							</tr>
 						<?php endforeach ?>
 					</tbody>
@@ -292,9 +286,6 @@
 							<th>Tanggal Bayar</th>
 							<th>Status Transaksi</th>
 							<th>Status Bayar</th>
-							<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-								<th>Outlet</th>
-							<?php endif ?>
 							<th>Pembuat</th>
 							<th>Aksi</th>
 						</tr>
@@ -360,9 +351,6 @@
 											<span class="badge badge-success"><i class="fas fa-fw fa-check"></i> <?= $dt['status_bayar']; ?></span>
 										<?php endif ?>
 									</td>
-								<?php endif ?>
-								<?php if ($this->session->userdata('id_jabatan') == '1') : ?>
-									<td><?= $dt['nama_outlet']; ?></td>
 								<?php endif ?>
 								<td><?= $dt['username']; ?></td>
 								<td>
@@ -502,11 +490,6 @@
 															<?php endforeach ?>
 														</select>
 													<?php endif ?>
-												</div>
-												<div class="form-group">
-													<label for="id_outlet<?= $dt['id_transaksi']; ?>">Nama Outlet</label>
-													<input type="hidden" name="id_outlet" value="<?= $dt['id_outlet']; ?>">
-													<input style="cursor: not-allowed;" disabled type="text" value="<?= $dataUser['nama_outlet']; ?>" class="form-control">
 												</div>
 											</div>
 											<div class="modal-footer">

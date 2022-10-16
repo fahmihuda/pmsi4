@@ -38,7 +38,7 @@
 <div class="container border border-dark my-2 p-4 px-5 mt-4">
   <div class="row justify-content-center">
     <div class="col-2 text-left">
-      <img width="100%" class="rounded" src="<?= base_url('assets/img/img_properties/icon.png'); ?>" alt="logo">
+      <img width="100%" class="rounded" src="<?= base_url('assets/img/img_properties/diamondogo.png'); ?>" alt="logo">
     </div>
     <div class="col text-left my-auto">
       <table border="0">
